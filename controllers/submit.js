@@ -4,7 +4,6 @@ const Address = require("../models/address");
 
 const submit = async (req, res, next) => {
   try {
-    console.log(req.body.firstName);
     const newUser = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
