@@ -9,7 +9,10 @@ const submit = async (req, res, next) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
     });
-    const result = await newUser.save(); //save the user data
+    const insertOptions = {
+      maxTimeMS: 5000, // Set a maximum time of 5 seconds for this operation
+    };
+    const result = await newUser.save(insertOptions); //save the user data
 
     const newAddress = new Address({
       userId: result._id,
